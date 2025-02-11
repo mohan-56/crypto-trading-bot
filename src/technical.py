@@ -12,6 +12,7 @@ class TechnicalAnalyzer:
         df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
         df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
         
+    
         bb_indicator = BollingerBands(close=df['close'], window=20, window_dev=2)
         df['bb_upper'] = bb_indicator.bollinger_hband()
         df['bb_lower'] = bb_indicator.bollinger_lband()
