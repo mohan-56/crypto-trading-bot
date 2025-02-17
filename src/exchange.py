@@ -15,6 +15,7 @@ class Exchange:
             'enableRateLimit': True,
         })
         print("EXCHANGE:------->>>>>",self.exchange)
+        # print(self.exchange.features)
     
     def get_current_price(self):
         ticker = self.exchange.fetch_ticker(SYMBOL)
