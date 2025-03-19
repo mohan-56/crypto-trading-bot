@@ -9,6 +9,10 @@ class TechnicalAnalyzer:
     def get_technical_data(self):
         ohlcv = self.exchange.fetch_ohlcv()
         print("old Data -->",ohlcv)
+        if not ohlcv:
+            print("No OHLCV data available. Returning empty DataFrame.")
+            return pd.DataFrame(columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
+        
         df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
         df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
         
