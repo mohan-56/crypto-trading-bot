@@ -49,6 +49,8 @@ class TradingStrategy:
         return action, current_price
     
     def execute_trade(self, action, current_price):
+        if current_price is None:
+            return "HOLD: No price data available"
         if action == "buy":
             self.exchange.buy()
             prev_holdings = self.holdings
