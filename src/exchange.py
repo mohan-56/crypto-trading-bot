@@ -5,7 +5,7 @@ import os
 # Add the parent directory to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import ccxt
-from config.config import API_KEY, SECRET_KEY, SYMBOL, AMOUNT
+from config.config import API_KEY, SECRET_KEY, SYMBOL, AMOUNT,API_PASSWORD
 import time
 
 class Exchange:
@@ -13,9 +13,12 @@ class Exchange:
         self.exchange = ccxt.bitget({
             'apiKey': API_KEY,
             'secret': SECRET_KEY,
+            'password': API_PASSWORD,
             'enableRateLimit': True,
              'options': {
                 'defaultType': 'spot',  # Explicitly set to spot trading
+                 'createMarketBuyOrderRequiresPrice': False  # Disable price requirement
+                  
             }
         })
         print("EXCHANGE:------->>>>>",self.exchange)
@@ -63,9 +66,10 @@ class Exchange:
             print(f"Error executing buy order: {e}")
             return None
     
-    def sell(self):
+    def sell(self, amount): 
         try:
-            order = self.exchange.create_market_sell_order(SYMBOL, AMOUNT)
+            order = self.exchange.create_market_sell_order(SYMBOL, amount)
+            print(f"Sell order executed: {order}")
             return order
         except Exception as e:
             print(f"Error executing sell order: {e}")

@@ -24,8 +24,9 @@ class SentimentAnalyzer:
                     analysis = TextBlob(text)
                     sentiment_score += analysis.sentiment.polarity
                     count += 1
-            print("sentiment score",sentiment_score)
-            return sentiment_score / count if count > 0 else 0
+            print("sentiment score",sentiment_score," cnt:",count)
+            return sentiment_score 
+        # / count if count > 0 else 0
         except Exception as e:
             print(f"Error fetching news: {e}")
             return 0
@@ -33,36 +34,3 @@ class SentimentAnalyzer:
 
 
 
-
-# import requests
-# from textblob import TextBlob
-
-# class SentimentAnalyzer:
-#     def __init__(self):
-#         self.url = "https://api.coingecko.com/api/v3/news"  # CoinGecko news endpoint
-    
-#     def get_sentiment(self):
-#         try:
-#             response = requests.get(self.url)
-#             response.raise_for_status()  # Raise an error for bad status codes
-#             news_data = response.json()
-#             articles = news_data.get("data", [])  # CoinGecko returns news in "data" key
-            
-#             sentiment_score = 0
-#             count = 0
-#             for article in articles[:10]:  # Analyze top 10 articles
-#                 title = article.get("title", "")
-#                 description = article.get("description", "") or ""
-#                 text = f"{title} {description}".strip()
-#                 if text:  # Ensure there's text to analyze
-#                     analysis = TextBlob(text)
-#                     sentiment_score += analysis.sentiment.polarity  # -1 (negative) to 1 (positive)
-#                     count += 1
-            
-#             return sentiment_score / count if count > 0 else 0
-#         except requests.RequestException as e:
-#             print(f"Error fetching news from CoinGecko: {e}")
-#             return 0
-#         except Exception as e:
-#             print(f"Error processing sentiment: {e}")
-#             return 0
