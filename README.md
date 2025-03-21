@@ -52,16 +52,16 @@ This bot integrates:
    The bot checks conditions every 3600 seconds (1 hour) by default (adjustable in config.py).
 
 ## Configuration
-Edit config/config.py to customize:
-SYMBOL: Trading pair (default: "BTCUSDT").
+   Edit config/config.py to customize:
+   - SYMBOL: Trading pair (default: "BTCUSDT").
 
-AMOUNT: Trade size in USDT (default: 1).
+   - AMOUNT: Trade size in USDT (default: 1).
 
-SENTIMENT_BUY_THRESHOLD: Sentiment sum to buy (default: 0.2).
+   - SENTIMENT_BUY_THRESHOLD: Sentiment sum to buy (default: 0.2).
 
-SENTIMENT_SELL_THRESHOLD: Sentiment sum to sell (default: -0.2).
+   - SENTIMENT_SELL_THRESHOLD: Sentiment sum to sell (default: -0.2).
 
-DCA_THRESHOLD: Price drop percentage for DCA (default: 0.98).
+   - DCA_THRESHOLD: Price drop percentage for DCA (default: 0.98).
 
 
 
