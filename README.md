@@ -55,11 +55,11 @@ This bot integrates:
 Edit config/config.py to customize:
 SYMBOL: Trading pair (default: "BTCUSDT").
 
-AMOUNT: Trade size in USDT (default: 100).
+AMOUNT: Trade size in USDT (default: 1).
 
-SENTIMENT_BUY_THRESHOLD: Sentiment sum to buy (default: 0.5).
+SENTIMENT_BUY_THRESHOLD: Sentiment sum to buy (default: 0.2).
 
-SENTIMENT_SELL_THRESHOLD: Sentiment sum to sell (default: -0.5).
+SENTIMENT_SELL_THRESHOLD: Sentiment sum to sell (default: -0.2).
 
 DCA_THRESHOLD: Price drop percentage for DCA (default: 0.98).
 
