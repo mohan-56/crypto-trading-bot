@@ -65,7 +65,7 @@ This bot integrates:
 
 ## Running the Bot
    1. Start the Bot:
-    ```bash
+      ```bash
          python src/telegram_bot.py
 
    Expected output:
