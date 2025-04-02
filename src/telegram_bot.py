@@ -39,6 +39,7 @@ def handle_update(update):
     
     chat_id = update["message"]["chat"]["id"]
     command = update["message"]["text"].strip()
+    print(f"Received command from {chat_id}: {command}")  # Debug incoming messages
 
     if command == "/start":
         send_message(chat_id, "Welcome to CryptoTraderBot! Use /trade or /balance.")
@@ -54,29 +55,32 @@ def handle_update(update):
 
 def main():
     print("Telegram bot is running...")
-    offset = None  # To track processed updates
+    offset = None
     
     while True:
         try:
-            # Poll for updates
             url = f"{TELEGRAM_API}/getUpdates"
-            params = {"timeout": 60, "offset": offset}  # Long polling with 60s timeout
+            params = {"timeout": 60, "offset": offset}
             response = requests.get(url, params=params, timeout=65)
             response.raise_for_status()
             data = response.json()
 
             if not data["ok"] or not data["result"]:
-                time.sleep(1)  # Avoid hammering the API
+                print("No new updates.")
+                time.sleep(1)
                 continue
 
-            # Process each update
             for update in data["result"]:
                 handle_update(update)
-                offset = update["update_id"] + 1  # Update offset to mark as processed
+                offset = update["update_id"] + 1
+                print(f"Processed update ID: {offset - 1}")
 
         except requests.RequestException as e:
             print(f"Polling error: {e}")
-            time.sleep(5)  # Wait before retrying on error
+            time.sleep(5)
+        except KeyboardInterrupt:
+            print("Bot stopped by user.")
+            break
         except Exception as e:
             print(f"Unexpected error: {e}")
             time.sleep(5)
