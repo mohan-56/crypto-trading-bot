@@ -63,6 +63,27 @@ This bot integrates:
 
    - DCA_THRESHOLD: Price drop percentage for DCA (default: 0.98).
 
+## Running the Bot
+   1. Start the Bot:
+    ```bash
+         python src/telegram_bot.py
+
+   Expected output:
+     ```bash
+         EXCHANGE:------->>>>> bitget
+         Markets loaded successfully for BTC/USDT
+         Telegram bot is running...
+
+2. Interact via Telegram:
+      Find your bot in Telegram (e.g., @YourBotName).
+
+      Send commands: /start, /trade, /balance.
+
+3. Stop the Bot:
+      Press Ctrl+C in the terminal:
+
+      Bot stopped by user.
+
 
 
 
