@@ -9,6 +9,7 @@ API_KEY = os.getenv("BITGET_API_KEY")
 SECRET_KEY = os.getenv("BITGET_SECRET_KEY")
 API_PASSWORD = os.getenv("BITGET_API_PASSWORD")
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
+BOT_KEY=os.getenv("BOT_KEY")
 
 
 
