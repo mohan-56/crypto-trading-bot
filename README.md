@@ -65,15 +65,15 @@ This bot integrates:
 
 ## Running the Bot
    1. Start the Bot:
-      ```bash
-         python src/telegram_bot.py
+         ```bash
+            python src/telegram_bot.py
 
       - Expected output:
 
-      ```bash
-            EXCHANGE:------->>>>> bitget
-            Markets loaded successfully for BTC/USDT
-            Telegram bot is running...
+         ```bash
+               EXCHANGE:------->>>>> bitget
+               Markets loaded successfully for BTC/USDT
+               Telegram bot is running...
 
 2. Interact via Telegram:
       - Find your bot in Telegram (e.g., @YourBotName).
@@ -82,8 +82,8 @@ This bot integrates:
 
 3. Stop the Bot:
       - Press Ctrl+C in the terminal:
-
-      - Bot stopped by user.
+         ```bash
+            Bot stopped by user.
 
 
 
