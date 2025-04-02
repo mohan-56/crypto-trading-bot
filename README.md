@@ -68,8 +68,8 @@ This bot integrates:
       ```bash
          python src/telegram_bot.py
 
-   Expected output:
-     ```bash
+      Expected output:
+         ```bash
          EXCHANGE:------->>>>> bitget
          Markets loaded successfully for BTC/USDT
          Telegram bot is running...
