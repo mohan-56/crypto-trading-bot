@@ -1,4 +1,4 @@
-# src/strategy.py
+
 from config.config import SENTIMENT_BUY_THRESHOLD, SENTIMENT_SELL_THRESHOLD, DCA_THRESHOLD,AMOUNT
 
 class TradingStrategy:
@@ -29,22 +29,26 @@ class TradingStrategy:
         
         action = "hold"
         
+        # RSI-based decision
+        rsi_buy = latest['rsi'] < 30
+        rsi_sell = latest['rsi'] > 70
+        
         # Sentiment-based decision
-        if sentiment > SENTIMENT_BUY_THRESHOLD:
+        if sentiment > SENTIMENT_BUY_THRESHOLD and rsi_buy:
             print(f"Sentiment {sentiment} > Buy Threshold {SENTIMENT_BUY_THRESHOLD}: Setting action to buy")
             action = "buy"
             print("going moooon")
-        elif sentiment < SENTIMENT_SELL_THRESHOLD:
+        elif sentiment < SENTIMENT_SELL_THRESHOLD and rsi_sell:
             print(f"Sentiment {sentiment} < Sell Threshold {SENTIMENT_SELL_THRESHOLD}: Setting action to sell")
             action = "sell"
             print("lets fill our pockets")
         
         # Bollinger Bands override
-        if current_price > latest['bb_upper']:
+        if current_price > latest['bb_upper'] and rsi_sell:
             print(f"Price {current_price} > BB Upper {latest['bb_upper']}: Setting action to sell")
             action = "sell"
             print("selling")
-        elif current_price < latest['bb_lower']:
+        elif current_price < latest['bb_lower'] and rsi_buy:
             print(f"Price {current_price} < BB Lower {latest['bb_lower']}: Setting action to buy")
             action = "buy"
             print("buying")

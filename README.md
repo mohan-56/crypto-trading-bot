@@ -10,7 +10,7 @@ This bot integrates:
 - **Exchange Integration**: Executes trades on Bitget via the CCXT library.
 
 ## Features
-- Trades BTC/USDT based on sentiment scores and Bollinger Bands.
+- Trades BTC/USDT based on sentiment scores ,RSI value and Bollinger Bands.
 - Configurable thresholds for buying, selling, and DCA.
 - Minimum trade size enforcement (0.000001 BTC) to comply with Bitget requirements.
 - Error handling for insufficient balance and API issues.
