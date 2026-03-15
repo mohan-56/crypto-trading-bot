@@ -85,6 +85,8 @@ This bot integrates:
          ```bash
         Bot stopped by user.
 
-
+Authors:
+mohan
+kishore
 
 
